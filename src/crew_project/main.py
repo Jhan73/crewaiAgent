@@ -4,7 +4,7 @@ import warnings
 
 from datetime import datetime
 
-from crew_project.crew import CrewProject
+from crew_project.crew import YouTubeScript
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -18,12 +18,12 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
+        'topic': input("Write a topic for a YouTube video: "),
         'current_year': str(datetime.now().year)
     }
 
     try:
-        CrewProject().crew().kickoff(inputs=inputs)
+        YouTubeScript().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -33,11 +33,11 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
+        'topic': input("Write a topic for a YouTube video: "),
         'current_year': str(datetime.now().year)
     }
     try:
-        CrewProject().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        YouTubeScript().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -47,7 +47,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        CrewProject().crew().replay(task_id=sys.argv[1])
+        YouTubeScript().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -62,7 +62,7 @@ def test():
     }
 
     try:
-        CrewProject().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        YouTubeScript().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
@@ -88,7 +88,7 @@ def run_with_trigger():
     }
 
     try:
-        result = CrewProject().crew().kickoff(inputs=inputs)
+        result = YouTubeScript().crew().kickoff(inputs=inputs)
         return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew with trigger: {e}")

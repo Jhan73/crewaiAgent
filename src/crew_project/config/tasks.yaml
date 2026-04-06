@@ -1,19 +1,21 @@
 research_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Realiza una investigación exhaustiva sobre {topic} y los subtemas de {topic}
+    Asegúrate de encontrar cualquier información interesante y relevante dado
+    que el año actual es {current_year}.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
+    Una lista con todos los puntos que encontraste necesarios y destacados de la
+    información más relevante sobre {topic} y los subtemas de {topic}.
   agent: researcher
 
-reporting_task:
+screenwriting_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Revisa el contexto obtenido y además busca por la estructura de un guión dentro
+    del guión base que vas a usar como referencia, toma en cuenta sobre todo
+    el tono y la estructura de este guión para crear uno similar pero con el contenido
+    del contexto. Escribe un guión como sólo tú sabes hacerlo con esa información, recuerda basarte el guión previo.
+    Utiliza la herramienta de `@notion_tool()` para crear una página y guardar el título y el contenido del guión.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
-  output_file: report.md
-
+    Un guión atractivo, interesante, divertido y educativo para un video de YouTube.
+    Regresa el título del video y el contenido formateado como markdown sin '```'
+  agent: screenwriter
